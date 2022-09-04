@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <% var url = "/users/uploadimage" %>;
+      <form method="post" action='<%=url%>' enctype="multipart/form-data">
+        <div class="card" align="center">
+          <div style="margin-left: 90px;margin-top: 250px;">
+            <input type="file" name="image" accept=".jpg" required/><br />
+          </div>
+          <button align="center" type="submit" name="upload" style="background-color: aqua">submit</button>
+        </div>
+      </form>
+  </body>
+</html>

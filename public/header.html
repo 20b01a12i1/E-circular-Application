@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <style>
+      .top-head {
+        background-color: black;
+        font-size: 16px;
+        height: 130px;
+        border-width: 10px;
+        color: aliceblue;
+        margin: 0;
+        display: flex;
+        column-gap: 25px;
+        column-count:3; 
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("#header1").load("navbarcss.html");
+      });
+    </script>
+  </head>
+  <body>
+    <div class="top-head">
+      <div><img
+        style="height: 65px; width: 55px; backface-visibility: hidden;margin-left: 210px;margin-top: 20px;"
+        class="d-inline-block align-top"
+        src="images/vishnulogo.png"
+        alt=""
+      /></div>
+      <div style="margin-left: 30px;margin-top: 10px;"><h2>SHRI VISHNU ENGINEERING COLLEGE FOR WOMEN (Autonomous)</h2><br><b><center/>
+        <!-- <h3 style="margin-top:5px;">E-CIRCULARS APPLICATION</h3></b></div> -->
+    </div>
+    <!-- <h1 class="masthead-heading mb-0"></h1>
+          <h2 style="color: rgb(214, 87, 87);" align="center">E-CIRCULARS APPLICATION</h2>
+          <h3 class="pre-wrap masthead-subheading font-weight-light mb-0" style="color: rgb(108, 216, 180);margin-right: 8px;" align="center">CIRCULARS - IT DEPARTMENT</h3>
+          -->
+    <div id="header1"></div>
+  </body>
+</html>

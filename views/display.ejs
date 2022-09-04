@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+  </head>
+  <header>
+    <%- include('./partials/header'); %>
+  </header>
+  <%- include('./partials/navbarcss'); %>
+  <body>
+    <div class="container text-center" style="margin-top:50px;">
+      <div class="row" style="height: 800px">
+        <div class="col-sm-6">
+          <h3>
+            <center><h2><%= title %></h2></center>
+          </h3>
+          <% if(data.length!=0){ %>
+          <table border="1">
+            <tr>
+              <th>date</th>
+              <th>description</th>
+              <th>images</th>
+            </tr>
+
+            <% data.forEach((i)=>{ %>
+            <tr>
+              <td><%= i.name %></td>
+              <td><%= i.description %></td>
+              <td><a href="../images/<%=i.files %>" target="_blank">Download</a></td>
+            </tr>
+            <% }) %>
+          </table>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

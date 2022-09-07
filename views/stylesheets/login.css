@@ -13,7 +13,7 @@ font-family: 'Numans', sans-serif;
 .container{
 height: 100%;
 align-content: center;
-padding-top: 50px;
+padding-top: 150px;
 }
 
 .card{
@@ -22,6 +22,7 @@ margin-top: auto;
 margin-bottom: auto;
 width: 400px;
 background-color: rgba(6, 205, 39, 0.5) !important;
+
 }
 
 

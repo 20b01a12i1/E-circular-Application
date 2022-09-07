@@ -1,0 +1,25 @@
+
+body{
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+  
+  }
+  section{
+    padding: 0 100px;
+    background: url(../images/image.jpg) no-repeat fixed center;
+    height:75.5vh;
+    display: flex;
+    justify-content: center;
+  }
+  .box{
+    position: relative;
+    max-width: 200px;
+    padding: 100px;
+    background: rgba(255,255,255,.2);
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    color: rgba(248, 255, 240, 0.764);
+    height:50px;
+    margin-top: 150px;
+  }
+  

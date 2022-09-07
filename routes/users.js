@@ -21,18 +21,29 @@ db.getConnection((err)=>{
 })
 router.post('/process_login', function(req, res, next) {
   let {username,password}=req.body;
-  let userdetails={
-    username:"SVECW",
-    password:"SVECW"
-  };
-
-  if(username === userdetails.username && password === userdetails.password){
-    res.cookie("username",username);
-    res.redirect('/')
-  }
-  else{
-    return res.redirect('/login?msg=fail')
-  }
+  const sql=`select password from faculty where username=?`
+  db.query(sql,[username],(err,result)=>{
+    if(err){
+      console.log(err)
+    }
+    else{
+      if(result.length==0){
+        return res.redirect('/login?msg=fail')
+      }
+      else{
+        if(password === result[0].password){
+          res.cookie("username",username);
+          res.redirect('/')
+        }
+        else{
+          return res.redirect('/login?msg=fail')
+        }
+      }
+      
+    }
+  })
+  
+  
 
 });
 
@@ -42,7 +53,7 @@ router.get('/searchfile', function(req, res, next) {
 });
 
 router.get('/upload', function(req, res, next) {
-  res.render('upload')
+  res.render('upload',{msg1:""})
 });
 
 const storage =multer.diskStorage({
@@ -88,7 +99,8 @@ router.post('/uploadimage',upload.single('image'),(req,res)=>{
           }
           else{
               console.log("Uploaded")
-              res.redirect('/users/upload');
+              // res.redirect('/users/upload');
+              res.render('upload',{msg1:"Uploaded Successfully!!"})
           }
       })
   }
@@ -98,7 +110,7 @@ router.post('/uploadimage',upload.single('image'),(req,res)=>{
 router.post("/search",(req,res)=>{
   const sname=req.body.date1;
   console.log(sname)
-  const sql=`select * from circulars_data where name=?`;
+  const sql=`select DATE_FORMAT(name,'%d-%m-%Y') as name,description,files from circulars_data where name=?`;
   db.query(sql,[sname],(err,result)=>{
     if(err){
         console.log(err);
@@ -115,18 +127,19 @@ router.post("/search",(req,res)=>{
 })
 
 router.get("/totaldata",(req,res)=>{
-  const sql=`select * from circulars_data order by name desc`;
+  const sql=`select name,description,files from circulars_data order by name desc`;
   db.query(sql,(err,result)=>{
     if(err){
         console.log(err);
     }
     else{
         if(result.length>0){
-          res.render('totaldisplay',{data:result,title:"Total Report"});
+          res.render('totaldisplay',{data:result,title:""});
         }
         else{
           res.render('display',{data:result,title:'No Circulars found on this date!!'})
         }
+        // console.log(result)
     }
   })
 })

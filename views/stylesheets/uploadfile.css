@@ -7,8 +7,7 @@ body{
 section{
   padding: 0 100px;
   background: url(../images/image.jpg);
-  height: 100vh;
-  display: flex;
+  height: 75.5vh;
   align-items: center;
   justify-content: center;
 }

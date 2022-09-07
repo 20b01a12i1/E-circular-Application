@@ -15,25 +15,35 @@
   <body>
     <div class="container text-center" style="margin-top:50px;">
       <div class="row" style="height: 800px">
-        <div class="col-sm-6">
+        <div class="col-sm-12">
           <h3>
-            <center><h2><%= title %></h2></center>
+            <center><h2 style="margin-left:70px;margin-top:40px"><%= title %></h2></center>
           </h3>
           <% if(data.length!=0){ %>
-          <table border="1">
-            <tr>
-              <th>date</th>
-              <th>description</th>
-              <th>images</th>
-            </tr>
-
-            <% data.forEach((i)=>{ %>
-            <tr>
-              <td><%= i.name %></td>
-              <td><%= i.description %></td>
-              <td><a href="../images/<%=i.files %>" target="_blank">Download</a></td>
-            </tr>
-            <% }) %>
+            <table
+            id="dtBasicExample"
+            class="table table-striped table-bordered table-sm"
+            cellspacing="0"
+            width="100%"
+          >
+            <thead>
+              <tr>
+                <th class="th-sm">Date</th>
+                <th class="th-sm">Description</th>
+                <th class="th-sm">Files</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% data.forEach((i)=>{ %>
+              <tr>
+                <td><%= i.name %></td>
+                <td><%= i.description %></td>
+                <td>
+                  <a href="../images/<%=i.files %>" target="_blank">Download</a>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
           </table>
           <% } %>
         </div>

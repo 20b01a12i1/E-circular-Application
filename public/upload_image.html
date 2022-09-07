@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../stylesheets/uploadimg.css" />
+    <link rel="stylesheet" href="./stylesheets/uploadimg.css" />
   </head>
   <body>
     <section>
       <div class="box">
-        <form method="post" action='/users/uploadimage' enctype="multipart/form-data">
-            
+        <form method="post" action='<%=url%>' enctype="multipart/form-data">
+          <div class="card" align="center">
+            <div>
               <input type="file" name="image" accept=".jpg" required/><br />
-            <br>
+            </div>
             <button align="center" type="submit" name="upload" style="background-color: aqua">submit</button>
+          </div>
         </form>
       </div>
     </section>    

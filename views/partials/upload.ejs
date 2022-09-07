@@ -3,19 +3,23 @@
     <link rel="stylesheet" href="../stylesheets/uploadfile.css" />
   </head>
   <body>
-    
     <section>
+      
       <div class="box">
+        <center><h3 style="color:rgb(32, 28, 24);"><i><%=msg1%></i></h3></center>
       <form action="/users/insert" method="post" >
         <h3>UPLOAD FILE</h3><br>
         <input type="date" name="id"/><br /><br />
         <label for="Description"><b>Description</b></label><br />
-        <textarea name="Text1" cols="25" rows="5"></textarea><br />
+        <br>
+        <input name="Text1" cols="25" type="text" rows="5"/><br /><br>
         <div >
           <button type="submit">Next</button>
         </div>
     </form>
     </div>
+
     </section>
+    
   </body>
 </html>

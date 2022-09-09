@@ -127,19 +127,19 @@ router.post("/search",(req,res)=>{
 })
 
 router.get("/totaldata",(req,res)=>{
-  const sql=`select name,description,files from circulars_data order by name desc`;
+  const sql=`select DATE_FORMAT(name,'%d-%m-%Y') as name1,description,files from circulars_data order by str_to_date(name,"%Y-%m-%d") desc`;
   db.query(sql,(err,result)=>{
     if(err){
         console.log(err);
     }
     else{
         if(result.length>0){
-          res.render('totaldisplay',{data:result,title:""});
+          res.render('totaldisplay',{data:result});
         }
         else{
           res.render('display',{data:result,title:'No Circulars found on this date!!'})
         }
-        // console.log(result)
+        console.log(result)
     }
   })
 })

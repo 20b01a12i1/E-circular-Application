@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-      crossorigin="anonymous"
-    />
+    <style>
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+      }
+      
+      th, td {
+        text-align: left;
+        padding: 16px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: rgb(183, 222, 247);
+      }
+      </style>
   </head>
   <header>
     <%- include('./partials/header'); %>
@@ -14,7 +25,7 @@
   <%- include('./partials/navbarcss'); %>
   <body>
     <div class="container text-center" style="margin-top:50px;">
-      <div class="row" style="height: 800px">
+      <div class="row" style="height: 68vh">
         <div class="col-sm-12">
           <h3>
             <center><h2 style="margin-left:70px;margin-top:40px"><%= title %></h2></center>
@@ -22,28 +33,26 @@
           <% if(data.length!=0){ %>
             <table
             id="dtBasicExample"
-            class="table table-striped table-bordered table-sm"
             cellspacing="0"
             width="100%"
           >
-            <thead>
-              <tr>
-                <th class="th-sm">Date</th>
-                <th class="th-sm">Description</th>
-                <th class="th-sm">Files</th>
-              </tr>
-            </thead>
-            <tbody>
+          <thead>
+            <tr style="background-color: rgb(17, 16, 16);">
+              <th style="width: 130px;color: aliceblue;">Date</th>
+              <th style="color: aliceblue;">Description</th>
+              <th style="width: 130px;color: aliceblue;">Files</th>
+            </tr>
+          </thead>
+              
               <% data.forEach((i)=>{ %>
               <tr>
-                <td><%= i.name %></td>
+                <td style="width: 130px;"><%= i.name %></td>
                 <td><%= i.description %></td>
-                <td>
+                <td style="width: 130px;">
                   <a href="../images/<%=i.files %>" target="_blank">Download</a>
                 </td>
               </tr>
               <% }) %>
-            </tbody>
           </table>
           <% } %>
         </div>

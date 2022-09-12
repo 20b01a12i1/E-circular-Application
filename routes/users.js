@@ -21,7 +21,7 @@ db.getConnection((err)=>{
 })
 router.post('/process_login', function(req, res, next) {
   let {username,password}=req.body;
-  const sql=`select password from faculty where username=?`
+  const sql=`select password,department from faculty where username=?`
   db.query(sql,[username],(err,result)=>{
     if(err){
       console.log(err)
@@ -33,6 +33,8 @@ router.post('/process_login', function(req, res, next) {
       else{
         if(password === result[0].password){
           res.cookie("username",username);
+          res.cookie("dept",result[0].department);
+          // console.log(req.cookies.dept)
           res.redirect('/')
         }
         else{
@@ -85,6 +87,8 @@ router.post('/insert',function(req, res, next) {
 router.post('/uploadimage',upload.single('image'),(req,res)=>{
   const des=req.session.user.name;
   const id=req.session.user.id
+  const dept=req.cookies.dept
+  console.log(dept)
   console.log(req.session.user.id)
   console.log(req.session.user.name)
   var imagePath=(req.file.filename);
@@ -92,8 +96,8 @@ router.post('/uploadimage',upload.single('image'),(req,res)=>{
       console.log("File not found")
   }
   else{
-      var sql=`Insert into circulars_data (name,description,files) values(?,?,?)`
-      db.query(sql,[id,des,imagePath],(err)=>{
+      var sql=`Insert into circulars_data (name,description,files,dept) values(?,?,?,?)`
+      db.query(sql,[id,des,imagePath,dept],(err)=>{
           if(err){
               console.log(err)
           }
@@ -127,8 +131,9 @@ router.post("/search",(req,res)=>{
 })
 
 router.get("/totaldata",(req,res)=>{
-  const sql=`select DATE_FORMAT(name,'%d-%m-%Y') as name1,description,files from circulars_data order by str_to_date(name,"%Y-%m-%d") desc`;
-  db.query(sql,(err,result)=>{
+  const dept=req.cookies.dept;
+  const sql=`select DATE_FORMAT(name,'%d-%m-%Y') as name1,description,files from circulars_data  where dept=? order by str_to_date(name,"%Y-%m-%d") desc`;
+  db.query(sql,[dept],(err,result)=>{
     if(err){
         console.log(err);
     }
@@ -137,7 +142,7 @@ router.get("/totaldata",(req,res)=>{
           res.render('totaldisplay',{data:result});
         }
         else{
-          res.render('display',{data:result,title:'No Circulars found on this date!!'})
+          res.render('display',{data:result,title:'No Circulars found!!'})
         }
         console.log(result)
     }

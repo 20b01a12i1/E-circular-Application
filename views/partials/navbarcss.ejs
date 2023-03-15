@@ -34,11 +34,15 @@ ul.nav a:active {
 }
     </style>
 </head>
+
 <body>
-    
     <ul class="nav">
         <li><a href="/users/searchfile">Search Circulars</a></li>
-        <li><a href="/users/upload">Upload Circulars</a></li>
+        <%if(page=="office"){%>
+            <li><a href="/users/uploadoffice">Upload Circulars</a></li>
+        <%}else{%>
+            <li><a href="/users/upload">Upload Circulars</a></li>
+        <%}%>
         <li><a href="/users/totaldata">Total Circulars</a></li>
         <li><a href="/logout">Log out</a></li>
       </ul>

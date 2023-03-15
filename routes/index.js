@@ -5,7 +5,14 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   let username = req.cookies.username;
   if(username){
-    res.render("home")
+    if(req.cookies.dept === 'office'){
+      res.render('home',{page:req.cookies.dept})
+       
+    }
+    else{
+      res.render("home",{page:req.cookies.dept})
+    }
+    // console.log(page)
   }else{
     res.render('index',{msg:""})
   }

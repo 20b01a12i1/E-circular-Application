@@ -185,6 +185,7 @@
                 <th style="width: 130px;color: aliceblue;">Date</th>
                 <th style="color: aliceblue;">Description</th>
                 <th style="width: 130px;color: aliceblue;">Files</th>
+                <th style="width: 130px;color: aliceblue;">Uploaded by</th>
               </tr>
             </thead>
                 
@@ -195,6 +196,9 @@
                 <td><%= i.description %></td>
                 <td style="width: 130px;">
                   <a href="../images/<%=i.files %>" target="_blank">Download</a>
+                </td>
+                <td>
+                  <%= i.dept%>
                 </td>
               </tr>
               <% }) %>

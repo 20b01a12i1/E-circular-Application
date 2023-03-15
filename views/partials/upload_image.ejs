@@ -7,10 +7,14 @@
     <section>
       <div class="box">
         <form method="post" action='/users/uploadimage' enctype="multipart/form-data">
-            
-              <input type="file" name="image" accept=".jpg" required/><br />
+          <div class="container">
+            <input type="file" name="image" accept="image/png, image/gif, image/jpeg" required/>
+            <button type="submit" >Upload</button>
+        </div>
+         
+       <!-- <input type="file" name="image" accept=".jpg" required/><br />
             <br>
-            <button align="center" type="submit" name="upload" style="background-color: aqua">submit</button>
+            <button align="center" type="submit" name="upload" style="background-color: aqua">submit</button> -->
         </form>
       </div>
     </section>    

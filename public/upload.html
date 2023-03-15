@@ -3,19 +3,23 @@
     <link rel="stylesheet" href="./stylesheets/uploadfile.css" />
   </head>
   <body>
-    <section>
-      <div class="box">
       <form action="/users/insert" method="post" >
-        <h3>UPLOAD FILE</h3><br>
-        <input type="date" name="id"/><br /><br />
-        <label for="Description"><b>Description</b></label><br />
-        <textarea name="Text1" cols="25" rows="5"></textarea><br />
-        <div >
-          <button type="submit">Next</button>
-        </div>
+        <div class="container">
+          <div class="labels">UPLOAD CIRCULAR</div>
+          <input type="date" name="id" required>
+          <div class="labels">Description</div>
+          <input name="Text1" cols="25" type="text" rows="5" required>
+          <button type="submit" >Next</button>
+      </div>
     </form>
     </div>
     </section>
   </body>
 </html>
+
+<!-- <%if(page!="office"){%>
+            <li><a href="/users/upload">Upload Circulars</a></li>
+        <%}else{%>
+            
+        <%}%> -->
 

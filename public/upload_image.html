@@ -4,17 +4,11 @@
     <link rel="stylesheet" href="./stylesheets/uploadimg.css" />
   </head>
   <body>
-    <section>
-      <div class="box">
-        <form method="post" action='<%=url%>' enctype="multipart/form-data">
-          <div class="card" align="center">
-            <div>
-              <input type="file" name="image" accept=".jpg" required/><br />
-            </div>
-            <button align="center" type="submit" name="upload" style="background-color: aqua">submit</button>
-          </div>
-        </form>
+      <form method="post" action='<%=url%>' enctype="multipart/form-data">
+        <div class="container">
+          <input type="file" name="image" accept="image/png, image/gif, image/jpeg" required/>
+          <button type="submit">Upload</button>
       </div>
-    </section>    
+      </form> 
   </body>
 </html>

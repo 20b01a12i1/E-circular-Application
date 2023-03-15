@@ -2,24 +2,19 @@
   <head>
     <link rel="stylesheet" href="../stylesheets/uploadfile.css" />
   </head>
-  <body>
-    <section>
-      
-      <div class="box">
-        <center><h3 style="color:rgb(32, 28, 24);"><i><%=msg1%></i></h3></center>
+  <body> 
+      <div style="margin-top: 100px;">
+        <center><h3 style="color:rgb(27, 74, 6);padding-top: 5px;"><i><%=msg1%></i></h3></center>
       <form action="/users/insert" method="post" >
-        <h3>UPLOAD CIRCULAR</h3><br>
-        <input type="date" name="id"/><br /><br />
-        <label for="Description"><b>Description</b></label><br />
-        <br>
-        <input name="Text1" cols="25" type="text" rows="5"/><br /><br>
-        <div >
-          <button type="submit">Next</button>
-        </div>
+        <div class="container">
+          <div class="labels">UPLOAD CIRCULAR</div>
+          <input type="date" name="id" required>
+          <div class="labels">Description</div>
+          <input name="Text1" cols="25" type="text" rows="5" required>
+          <button type="submit" >Next</button>
+      </div>
     </form>
     </div>
 
-    </section>
-    
   </body>
 </html>

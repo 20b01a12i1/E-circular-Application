@@ -1,21 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../stylesheets/searchfile.css" />
-  </head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="../stylesheets/searchfile.css" />
+      </head>
   <body>
-    <section>
-      <div class="box">
+    <% var arr=[] %>
+    <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
+      <%arr.push(data[i].dates_total)%>
+      <% } }%>
+      <div style="margin-top: 100px;">
         <form action="/users/search" method="post">
-          <label for="search date"><h3><b>SEARCH CIRCULAR</b></h3></label
-          ><br />
-          <input type="date" name="date1" required/><br><br>
-          <input
-            type="submit"
-            value="SHOW"
-            style="background-color: rgb(26, 186, 178);"/>
+          <div class="container">
+            <div class="labels">SEARCH CIRCULAR</div>
+            <input type="text" id="datepicker" name="date1" required>
+            <button type="submit" >Search</button>
+        </div>
         </form>
       </div>
-    </section>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+        $( document ).ready(function() {
+            // dd/mm/yyyy
+            availableDates = ["04-01-2023", "01-02-2023", "10-02-2023", "09-02-2023"];
+            // availableDates =  arr 
+            function available(date) {
+                var moth = String(date.getMonth() + 1);
+                if (moth.length == 1) {
+                    moth = "0" + moth;
+                }
+                var dat = String(date.getDate());
+                if (dat.length == 1) {
+                    dat = "0" + dat;
+                }
+                dmy = dat + "-" + moth + "-" + date.getFullYear();
+    
+                if ($.inArray(dmy, availableDates) != -1)    {
+                    return [true, ""];
+                } else {
+                    return [false, ""];
+                }
+            }
+            $("#datepicker").datepicker({
+                beforeShowDay: function (dt) {
+                    return available(dt);
+                },
+                changeMonth: true,
+                changeYear: true,
+            });
+            });
+        </script>
   </body>
 </html>

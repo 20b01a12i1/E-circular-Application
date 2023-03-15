@@ -25,7 +25,8 @@ DROP TABLE IF EXISTS `circulars_data`;
 CREATE TABLE `circulars_data` (
   `name` varchar(50) DEFAULT NULL,
   `description` varchar(500) DEFAULT NULL,
-  `files` varchar(545) DEFAULT NULL
+  `files` varchar(545) DEFAULT NULL,
+  `dept` varchar(145) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -53,4 +54,4 @@ CREATE TABLE `faculty` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-07 14:52:32
+-- Dump completed on 2022-09-12 19:26:09
